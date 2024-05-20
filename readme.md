@@ -7,18 +7,20 @@
 -  Este repositorio esta comprendido por nuestro indicador.
 -  Nos enfocamos en su versatilidad y facil configuración.
 -  En futuras versiones ampliaremos las opciones de configuración. 
-<br />
-<br />
 
 #### Secciones
 
 -  Variables
+  > Colors
+  > Constants
+
 -  Functions
--  Maths
--  Rules
+  > Maths
+  > Rules
+
 -  Display
--  Plot
--  Bar
+  > Plot
+  > Bar
 
 <img align="right" src="https://github.com/2LV/Tradingview-Indicators/assets/70970973/74846972-8cdd-491e-9d35-272fe0a8167d" alt="Pinescript Logo" width="200" height="130.31" />
 
