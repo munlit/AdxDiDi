@@ -301,6 +301,9 @@ condition    = 0.0
 [diPlus, _]  = functDirMov(diLength)
 [_, diMinus] = functDirMov(diLength)
 
+bool signal         = diPlus > diMinus
+color colorCrOver   = signal ? colorBlueSky30 : colorFucsia40
+
 hlRange     = sig     <= levelRange
 diUp        = diPlus  >= diMinus
 diUpUp      = diPlus  >= levelTrend
@@ -330,9 +333,9 @@ ruleSig      = hlRange                             ? color.new(colorLightYellow2
                    sigUp   and diDn                ? color.new(colorFucsia40,      0) :
                not sigUp   and diDn                ? color.new(colorFucsia50,      70) : na
 
-fillAdx      =     hlRange                         ? color.new(colorLightYellow30, 90) :
-               not hlRange and diUp and diUpUp     ? color.new(colorBlueSky30,     90) :
-               not hlRange and diUp and not diUpUp ? color.new(colorBlueSky40,     60) :
+fillAdx      =     hlRange                         ? color.new(colorLightYellow30, 75) :
+               not hlRange and diUp and diUpUp     ? color.new(colorBlueSky30,     60) :
+               not hlRange and diUp and not diUpUp ? color.new(colorBlueSky40,     90) :
                not hlRange and diDn and diDnDn     ? color.new(colorFucsia40,      90) :
                not hlRange and diDn and not diDnDn ? color.new(colorFucsia50,      60) : na
 
@@ -342,8 +345,8 @@ fillAdx      =     hlRange                         ? color.new(colorLightYellow3
 
 //  ═══  Plot  ═══
 plot(sig,                   title = 'ADX',          color = ruleSig,              linewidth = 3)
-pDiPlus = plot(diPlus,      title = '+DI',          color = colorBlueSky30)   
-pDiMinus = plot(diMinus,    title = '-DI',          color = colorFucsia40)
+pDiPlus = plot(diPlus,      title = '+DI',          color = colorCrOver)   
+pDiMinus = plot(diMinus,    title = '-DI',          color = colorCrOver)
 fill(pDiPlus, pDiMinus,     title = 'Fill ADX ',    color = fillAdx)
 plot(crossDi ? diPlus : na, title = 'Cross Di',     color = colorWebSeasalt,        linewidth = 2, style = plot.style_circles)
 hline(levelRange,           title = 'Level Range',  color = colorSecondaryLavender, linewidth = 1, linestyle = hline.style_dotted)
