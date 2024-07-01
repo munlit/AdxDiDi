@@ -280,7 +280,7 @@ colAdxAreaLow		= color.new(AmeTrGrayNickel,	70)
 colAdxAreaLowM		= color.new(AmeTrGrayNickel,	90)
 colAdxAreaRange		= color.new(ARoPrimary,			85)
 
-/// ─── Trend
+/// ─── Ribbon ─
 colAdxRibbon		= color.new(AmeTrGrayNickel,	80)
 colAdxRibbonBurn	= color.new(ARoPrimary,			90)
 colAdxRibbonL		= color.new(AllenMint10,		98)
@@ -370,15 +370,18 @@ fillAdx			= hlRange								? colAdxAreaRange	:
 /// ─── +Di- ───
 /// ─── Display
 
-/// ─── Plot ───
+/// ─── Lines ──
 plot(sig,					title = 'ADX',			color = ruleSig,				linewidth = 7)
 
 pDiPlus = plot(diPlus,		title = '+DI',			color = colorLineCrOver, 		linewidth = 2)   
 pDiMinus = plot(diMinus,	title = '-DI',			color = colorLineCross)
 
+/// ─── Areas ──
 fill(pDiPlus, pDiMinus,		title = 'Fill ADX ',	color = fillAdx)
 
-plot(crossDi ? diPlus : na,	title = 'Cross Di',		color = AmeTrGrayNickel,		linewidth = 3,	style = plot.style_circles)
+plot(crossDi ? diPlus : na,	title = 'Cross Di',		color = ARoPrimary,				linewidth = 3,	style = plot.style_circles)
+
+/// ─── Ribbon ─
 trend1 = hline(levelRange,	title = 'Level Range',	color = colAdxRange,			linewidth = 1,	linestyle = hline.style_dotted)
 trend2 = hline(levelTrend,	title = 'Level Trend',	color = colAdxRange,			linewidth = 1,	linestyle = hline.style_dotted)
 
